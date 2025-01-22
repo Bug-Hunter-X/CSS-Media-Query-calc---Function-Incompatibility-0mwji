@@ -1,0 +1,12 @@
+The following CSS code snippet demonstrates an uncommon error related to the usage of the `calc()` function within media queries:
+
+```css
+@media (max-width: calc(100vw - 100px)) {
+  /* Styles to be applied when the viewport width is less than 100vw - 100px */
+  .element {
+    width: 50%;
+  }
+}
+```
+
+The `calc()` function is not directly supported within media query conditions by all browsers.  While some newer browsers might interpret this correctly, older browsers might not, leading to unpredictable behavior.  The media query will effectively be ignored or evaluated incorrectly. 
