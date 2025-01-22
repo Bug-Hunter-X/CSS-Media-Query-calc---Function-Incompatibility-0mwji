@@ -1,0 +1,22 @@
+To resolve the incompatibility, it is recommended to avoid using `calc()` directly in media query conditions.  Instead, determine the breakpoint using JavaScript or a CSS preprocessor (such as Sass or Less) and then apply the appropriate styles based on the calculated value.
+
+Here's an example using JavaScript to set the media query breakpoint dynamically:
+
+```javascript
+const viewportWidth = window.innerWidth;
+const breakpoint = viewportWidth - 100; // Calculate the breakpoint
+
+document.documentElement.style.setProperty('--breakpoint', `${breakpoint}px`);
+```
+
+And in your CSS, use the custom property:
+
+```css
+@media (max-width: var(--breakpoint)) {
+  .element {
+    width: 50%;
+  }
+}
+```
+
+This approach ensures the media query works consistently across browsers by decoupling the breakpoint calculation from the media query definition.
